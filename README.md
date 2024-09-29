@@ -27,7 +27,7 @@ pip install requests
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/AnujYadav-Dev/currency-converter.git
+   git clone https://github.com/AnujYadav-Dev/real-time-currency-converter.git
    cd currency-converter
    ```
 
