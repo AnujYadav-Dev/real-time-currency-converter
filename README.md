@@ -1,159 +1,93 @@
 
-# Student Management System
+# Currency Converter
 
-A **Terminal-based Student Management System** built using **Python** and **MySQL**. This system allows you to efficiently manage student information with features such as adding, updating, deleting, and searching for student records.
+A Python-based currency converter that allows users to convert amounts between different currencies using real-time exchange rates. This tool supports a selection of popular currencies, including the Indian Rupee (INR), and provides a user-friendly command-line interface.
 
 ## Features
 
-- **Add New Student**: Add a new student's details to the system.
-- **Update Student Record**: Update any field for an existing student.
-- **Delete Student Record**: Safely delete a student record after verification.
-- **Search Student Record**: Search for a student by their ID.
-- **Display All Students**: View all student records in a neatly formatted table.
+- **Real-Time Exchange Rates**: Retrieves the latest exchange rates from a reliable API.
+- **Interactive Currency Selection**: Choose from a list of top global currencies and the Indian Rupee (INR).
+- **Simple and Clear Output**: Displays the converted amount and the exchange rate.
 
-## Database Structure
+## Getting Started
 
-The student data is stored in a MySQL database with the following fields:
+### Prerequisites
 
-- `student_id`: Unique identifier for each student.
-- `name`: Student's name.
-- `class_section`: Class and section of the student.
-- `admission_no`: Admission number.
-- `dob`: Date of birth (in `YYYY-MM-DD` format).
-- `mother_name`: Student's mother's name.
-- `father_name`: Student's father's name.
-- `phone_no`: Parent's contact number.
-- `address`: Home address.
+- Python 3.x
+- `requests` library for HTTP requests
 
-## Prerequisites
-
-To run the project on your local machine, you need to have the following installed:
-
-1. **Python 3.x**
-2. **MySQL** (Ensure MySQL server is running)
-
-You'll also need to install the following Python packages:
+You can install the `requests` library using pip:
 
 ```bash
-pip install mysql-connector-python
+pip install requests
 ```
 
-## Setup
+### Installation
 
-### 1. Clone the Repository
-Clone this repository to your local machine:
+1. **Clone the Repository**
 
-```bash
-git clone https://github.com/yourusername/student-management-system.git
-cd student-management-system
+   ```bash
+   git clone https://github.com/AnujYadav-Dev/currency-converter.git
+   cd currency-converter
+   ```
+
+2. **Add Your API Key**
+
+   Open `currency_converter.py` and set your own API key from [ExchangeRate-API](https://www.exchangerate-api.com/).
+
+3. **Run the Application**
+
+   ```bash
+   python currency_converter.py
+   ```
+
+4. **Follow the Prompts**
+
+   - Enter the base currency code (e.g., INR).
+   - Enter the target currency code (e.g., USD).
+   - Enter the amount you want to convert.
+
+## Example Usage
+
+```
+Available currencies:
+INR: Indian Rupee
+USD: United States Dollar
+EUR: Euro
+GBP: British Pound
+JPY: Japanese Yen
+AUD: Australian Dollar
+CAD: Canadian Dollar
+CHF: Swiss Franc
+CNY: Chinese Yuan
+SEK: Swedish Krona
+NZD: New Zealand Dollar
+
+
+Enter the base currency code (e.g., INR): USD
+Enter the target currency code (e.g., USD): EUR
+Enter the amount in USD: 100
+
+100 USD = 84.50 EUR
+Exchange Rate: 1 USD = 0.8450 EUR
 ```
 
-### 2. Create the MySQL Database
-Create a MySQL database and a `students` table:
+## Supported Currencies
 
-```sql
-CREATE DATABASE student_management;
+- INR: Indian Rupee
+- USD: United States Dollar
+- EUR: Euro
+- GBP: British Pound
+- JPY: Japanese Yen
+- AUD: Australian Dollar
+- CAD: Canadian Dollar
+- CHF: Swiss Franc
+- CNY: Chinese Yuan
+- SEK: Swedish Krona
+- NZD: New Zealand Dollar
 
-USE student_management;
+## Contributing
 
-CREATE TABLE students (
-    student_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    class_section VARCHAR(10),
-    admission_no VARCHAR(20),
-    dob DATE,
-    mother_name VARCHAR(100),
-    father_name VARCHAR(100),
-    phone_no VARCHAR(15),
-    address VARCHAR(255)
-);
-```
+Contributions are welcome! Please open issues or submit pull requests to improve the project.
 
-### 3. Configure Database Connection
-In the Python code, update the `connect_db` function with your MySQL connection details:
-
-```python
-def connect_db():
-    return mysql.connector.connect(
-        host='localhost',
-        database='student_management',
-        user='your_mysql_user',
-        password='your_mysql_password'
-    )
-```
-
-### 4. Run the Program
-Execute the main Python script to start the terminal-based student management system:
-
-```bash
-python main.py
-```
-
-## How to Use
-
-1. After running the script, you will be prompted with a menu to **add**, **update**, **delete**, **search**, or **display** student records.
-2. Follow the on-screen instructions for each option.
-3. The program handles exceptions such as invalid inputs and non-existent records.
-
-### Example Operations:
-
-#### Add a Student:
-
-```bash
-Enter student name: John Doe
-Enter class & section: 5A
-Enter admission number: 12345
-Enter date of birth (YYYY-MM-DD): 2010-05-20
-Enter mother's name: Jane Doe
-Enter father's name: Jack Doe
-Enter phone number: 1234567890
-Enter address: 123 Main St
-```
-
-#### Update a Student Record:
-
-```bash
-Enter the Student ID to update: 3
-Which field would you like to update?
-1. Name
-2. Class & Section
-3. Admission No
-4. Date of Birth (YYYY-MM-DD)
-5. Mother's Name
-6. Father's Name
-7. Phone No.
-8. Address
-Enter the number corresponding to the field: 2
-Enter new value for Class & Section: 6B
-Class & Section updated successfully.
-```
-
-#### Delete a Student Record:
-
-```bash
-Enter the Student ID to delete: 5
-No student found with Student ID 5.
-```
-
-## Exception Handling
-
-- If an invalid Student ID is entered for update or deletion, a message will alert the user.
-- Input validations are in place for various fields such as date and phone number.
-  
-## Future Improvements
-
-- Add a graphical user interface (GUI) to improve the user experience.
-- Implement user authentication for enhanced security.
-- Add more search features (e.g., search by name, class, or phone number).
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contributions
-
-Contributions are welcome! Feel free to fork this repository, make improvements, and submit a pull request.
-
----
-
-**Happy Coding!**
+## Happy Coding 
